@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Paket MCU</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #e0e0e0;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 24px;
+            margin: 0;
+            text-align: left;
+            flex: 1;
+        }
+        .admin-info-container {
+            display: flex;
+            align-items: center;
+        }
+        .admin-info {
+            font-size: 14px;
+            color: #555;
+            margin-right: 10px;
+        }
+        .back-button {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .back-button:hover {
+            background-color: #333;
+        }
+        .container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            margin: 0 auto;
+            background : #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .add-button-container {
+            margin: 10px 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .add-button-container button {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .add-button-container button:hover {
+            background-color: #333;
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+        .search-bar input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .search-bar button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .search-bar button:hover {
+            background-color: #0056b3;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table th, table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        table th {
+            background-color: #f1f1f1;
+        }
+        .tags {
+            display: flex;
+            gap: 5px;
+        }
+        .tag {
+            background-color: #e0e0e0;
+            border-radius: 3px;
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+        .tag.design {
+            color: #6a1b9a;
+        }
+        .tag.product {
+            color: #1e88e5;
+        }
+        .tag.marketing {
+            color: #43a047;
+        }
+        .actions {
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Align items vertically */
+            gap: 10px;
+        }
+        .actions i {
+            cursor: pointer;
+            font-size: 16px; /* Ukuran ikon lebih kecil */
+        }
+        .pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .pagination .pages {
+            display: flex;
+            gap: 5px;
+        }
+        .pagination .pages a {
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            text-decoration: none;
+            color: #000;
+        }
+        .pagination .pages a.active {
+            background-color: #000;
+            color: #fff;
+        }
+        .pagination .pages a:hover {
+            background-color: #ddd;
+        }
+
+        /* Tombol Next dan Previous menjadi hitam */
+        .pagination button {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .pagination button:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header section -->
+    <div class="header">
+        <h1>Data Paket MCU</h1>
+        <div class="admin-info-container">
+            <span class="admin-info">Petugas Administrasi</span>
+            <button class="back-button">Back</button>
+        </div>
+    </div>
+    
+    <!-- Main container for content -->
+    <div class="container">
+        <!-- Add button and search bar section -->
+        <div class="add-button-container">
+            <button>Add</button>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button>Search</button>
+            </div>
+        </div>
+        
+        <!-- Table section -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Nama Paket</th>
+                    <th>Harga</th>
+                    <th>Pemeriksaan</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Wellness Basic<br>@olivia</td>
+                    <td>Rp  1,200,000</td>
+                    <td>
+                        <div class="tags">
+                            <span class="tag design">Darah Lengkap</span>
+                            <span class="tag product">Kolesterol</span>
+                            <span class="tag marketing">Gula Darah</span>
+                            <span class="tag">+4</span>
+                        </div>
+                    </td>
+                    <td class="actions">
+                        <i class="fas fa-edit"></i>
+                        <i class="fas fa-trash"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phoenix Basic<br>@phoenix</td>
+                    <td>Rp 900,000</td>
+                    <td>
+                        <div class="tags">
+                            <span class="tag design">Darah Lengkap</span>
+                            <span class="tag product">Kolesterol</span>
+                            <span class="tag marketing">Liver</span>
+                            <span class="tag">+3</span>
+                        </div>
+                    </td>
+                    <td class="actions">
+                        <i class="fas fa-edit"></i>
+                        <i class="fas fa-trash"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Health Advance<br>@lana</td>
+                    <td>Rp 1,800,000</td>
+                    <td>
+                        <div class="tags">
+                            <span class="tag design">Darah Lengkap</span>
+                            <span class="tag product">Kolesterol</span>
+                            <span class="tag marketing">Jantung</span>
+                            <span class="tag">+5</span>
+                        </div>
+                    </td>
+                    <td class="actions">
+                        <i class="fas fa-edit"></i>
+                        <i class="fas fa-trash"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Complete Wellness<br>@candice</td>
+                    <td>Rp 2,500,000</td>
+                    <td>
+                        <div class="tags">
+                            <span class="tag design">Gula Darah</span>
+                            <span class="tag product">Darah Lengkap</span>
+                            <span class="tag marketing">Jantung</span>
+                            <span class="tag">+6</span>
+                        </div>
+                    </td>
+                    <td class="actions">
+                        <i class="fas fa-edit"></i>
+                        <i class="fas fa-trash"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Pagination section -->
+        <div class="pagination">
+            <button>Previous</button>
+            <div class="pages">
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">...</a>
+                <a href="#">9</a>
+                <a href="#">10</a>
+            </div>
+            <button>Next</button>
+        </div>
+    </div>
+</body>
+</html>
